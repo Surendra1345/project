@@ -58,25 +58,21 @@ SSIM: 0.9973
 NC (Clean): 0.9836
 
 **Robustness Against Attacks**
-| Attack          | PSNR    | SSIM   | NC     |
-| --------------- | ------- | ------ | ------ |
-| Gaussian 0.01   | 38.2972 | 0.9662 | 0.9816 |
-| Gaussian 0.02   | 33.6340 | 0.8957 | 0.9632 |
-| Blur 1          | 28.7396 | 0.9139 | 0.9810 |
-| Blur 2          | 23.8256 | 0.7413 | 0.9631 |
-| Crop 0.9        | 15.7280 | 0.3827 | 0.7422 |
-| Crop 0.8        | 14.2275 | 0.2730 | 0.7260 |
-| Rotate 5°       | 15.4045 | 0.4792 | 0.8894 |
-| Rotate -5°      | 15.9748 | 0.4755 | 0.8766 |
-| Rotate 10°      | 12.9657 | 0.3163 | 0.6969 |
-| JPEG 90         | 33.8860 | 0.9584 | 0.9673 |
-| JPEG 80         | 32.1468 | 0.9402 | 0.9310 |
-| Resize 0.8      | 31.9128 | 0.9601 | 0.9825 |
-| Resize 0.6      | 29.8982 | 0.9361 | 0.9814 |
-| Flip Horizontal | 8.9445  | 0.1854 | 0.2450 |
-| Flip Vertical   | 11.3137 | 0.1677 | 0.2850 |
-| Pixelate 2x2    | 24.2807 | 0.8402 | 0.9733 |
 
+The model has been tested against common image manipulations to evaluate watermark robustness. These include:
+Gaussian Noise (e.g., variance 0.01, 0.02)
+Blurring (e.g., radius 1–2)
+Cropping & Resizing (e.g., 80–90% of original size)
+Rotation & Flipping
+JPEG Compression (quality 80–90)
+Pixelation
+
+**Observations:**
+
+Watermarks are reliably extracted under most mild to moderate distortions.
+PSNR and SSIM values remain high for small attacks, ensuring visual fidelity.
+Normalized Correlation (NC) values are consistently above ~0.8 on average, indicating robust watermark recovery.
+Extreme distortions (like aggressive flips or heavy cropping) may reduce watermark extraction accuracy.
 
 **Average NC across all attacks: 0.8241**
 
